@@ -1,0 +1,45 @@
+<!-- <archetype xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
+<!--   xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype/1.0.0 http://maven.apache.org/xsd/archetype-1.0.0.xsd"> -->
+<!--   <id>balcony-archetype-spring-mvc-base</id> -->
+<!--   <sources> -->
+<!--     <source>src/main/java/homepage/web/controller/HomepageController.java</source> -->
+<!--   </sources> -->
+<!--   <resources> -->
+<!--     <resource>src/main/resources/spring/bootstrap/context-mvc-root.xml</resource> -->
+<!--     <resource>src/main/resources/spring/mvc/context-mvc-core.xml</resource> -->
+<!--     <resource>src/main/webapp/WEB-INF/pages/home.jsp</resource> -->
+<!--     <resource>src/main/webapp/WEB-INF/web.xml</resource> -->
+<!--   </resources> -->
+<!--   <testSources> -->
+<!--     <source>src/test/java/grp/balcony/homepage/web/controller/HomepageControllerTest.java</source> -->
+<!--   </testSources> -->
+<!-- </archetype> -->
+
+<archetype-descriptor name="balcony-archetype-spring-mvc-base"
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
+  <fileSets>
+    <fileSet filtered="true" packaged="true">
+       <directory>src/main/java</directory>
+       <includes>
+        <include>**/*.java</include>
+       </includes>
+    </fileSet>
+    <fileSet filtered="true">
+       <directory>src/main/resources</directory>
+    </fileSet>
+    <fileSet filtered="false" encoding="UTF-8">
+       <directory>src/main/webapp</directory>
+    </fileSet>
+    <fileSet filtered="true" packaged="true">
+       <directory>src/test/java</directory>
+       <includes>
+        <include>**/*.java</include>
+       </includes>
+    </fileSet>
+    <fileSet filtered="true">
+       <directory>src/test/resources</directory>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
