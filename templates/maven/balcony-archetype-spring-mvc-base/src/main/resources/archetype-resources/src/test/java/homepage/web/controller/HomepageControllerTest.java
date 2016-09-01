@@ -1,4 +1,4 @@
-package grp.balcony.homepage.web.controller;
+package ${package}.homepage.web.controller;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;

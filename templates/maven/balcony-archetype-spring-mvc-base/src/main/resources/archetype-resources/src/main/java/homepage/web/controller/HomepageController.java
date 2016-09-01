@@ -1,4 +1,4 @@
-package grp.balcony.homepage.web.controller;
+package ${package}.homepage.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
