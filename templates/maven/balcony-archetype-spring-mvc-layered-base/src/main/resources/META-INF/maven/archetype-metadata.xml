@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="symorearchet"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modules>
+    <module id="${rootArtifactId}-webapp" dir="apps/__rootArtifactId__-webapp" name="${rootArtifactId}-webapp">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/webapp</directory>
+          <includes>
+            <include>**/*.xml</include>
+            <include>**/*.jsp</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-dao-user" dir="modules/dao/__rootArtifactId__-dao-user" name="${rootArtifactId}-dao-user" />
+    <module id="${rootArtifactId}-service-user" dir="modules/service/__rootArtifactId__-service-user" name="${rootArtifactId}-service-user" />
+    <module id="${rootArtifactId}-web-auth" dir="modules/web/__rootArtifactId__-web-auth" name="${rootArtifactId}-web-auth" />
+    <module id="${rootArtifactId}-dao-parent" dir="modules/dao/__rootArtifactId__-dao-parent" name="${rootArtifactId}-dao-parent" />
+    <module id="${rootArtifactId}-service-parent" dir="modules/service/__rootArtifactId__-service-parent" name="${rootArtifactId}-service-parent" />
+    <module id="${rootArtifactId}-web-parent" dir="modules/web/__rootArtifactId__-web-parent" name="${rootArtifactId}-web-parent" />
+    
+  </modules>
+</archetype-descriptor>
