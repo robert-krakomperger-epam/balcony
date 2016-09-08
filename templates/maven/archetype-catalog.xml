@@ -10,6 +10,13 @@
             <repository>https://github.com/robert-krakomperger-epam/balcony/templates/maven/balcony-archetype-spring-mvc-base</repository>
             <description>Spring MVC 4 base archetype</description>
         </archetype>
+		<archetype>
+            <groupId>com.epm</groupId>
+            <artifactId>balcony-archetype-spring-standalone-base</artifactId>
+            <version>1.0.0</version>
+            <repository>https://github.com/robert-krakomperger-epam/balcony/templates/maven/balcony-archetype-spring-standalone-base</repository>
+            <description>Spring 4 base archetype</description>
+        </archetype>
     </archetypes>
 </archetype-catalog>
 
