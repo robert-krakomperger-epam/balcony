@@ -1,0 +1,71 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <property resource="configuration/environment/default/system.properties" />
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-d-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - Id:%X{requestId} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE-Http" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${symbol_dollar}{LOG_BASE_PATH}http.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${symbol_dollar}{LOG_BASE_PATH}http.log_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>60</maxHistory>
+      <totalSizeCap>20GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-d-HH:mm:ss.SSS} [%thread] %-5level - Id:%X{requestId} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE-Main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${symbol_dollar}{LOG_BASE_PATH}main.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${symbol_dollar}{LOG_BASE_PATH}main.log_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>60</maxHistory>
+      <totalSizeCap>20GB</totalSizeCap>
+    </rollingPolicy>      
+    <encoder>
+      <pattern>%d{yyyy-MM-d-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - Id:%X{requestId} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE-Hibernate" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${symbol_dollar}{LOG_BASE_PATH}hibernate.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${symbol_dollar}{LOG_BASE_PATH}hibernate.log_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>60</maxHistory>
+      <totalSizeCap>20GB</totalSizeCap>
+    </rollingPolicy>      
+    <encoder>
+      <pattern>%d{yyyy-MM-d-HH:mm:ss.SSS} [%thread] %-5level %logger{36} - Id:%X{requestId} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- http request and response logger -->
+  <logger name="httpLogger" level="${symbol_dollar}{logging.level.http}" additivity="false">
+    <appender-ref ref="FILE-Http" />
+  </logger>
+
+  <!-- hibernate logger -->
+  <logger name="org.hibernate" level="${symbol_dollar}{logging.level.hibernate}" additivity="false">
+    <appender-ref ref="FILE-Hibernate" />
+  </logger>
+
+  <root level="${symbol_dollar}{logging.level.root}">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE-Main" />
+  </root>
+</configuration>

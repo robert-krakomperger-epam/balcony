@@ -1,0 +1,64 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+  <bean id="environmentSpecificPropertyPlaceholder" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer" abstract="true">
+    <property name="locations" ref="environmentSpecificConfigurationPaths" />
+    <property name="order" value="0" />
+    <property name="ignoreUnresolvablePlaceholders" value="false" />
+  </bean>
+
+  <bean id="standardConfigurationPaths" class="org.springframework.beans.factory.config.ListFactoryBean">
+    <property name="sourceList">
+      <list>
+        <value>classpath*:spring/requestmappings/*.properties</value>
+      </list>
+    </property>
+  </bean>
+
+  <beans>
+    <bean id="defaultEnvironmentSpecificConfigurationPaths" parent="standardConfigurationPaths" class="org.springframework.beans.factory.config.ListFactoryBean">
+      <property name="sourceList">
+        <list merge="true">
+          <value>classpath*:configuration/environment/default/*.properties</value>
+        </list>
+      </property>
+    </bean>
+  </beans>
+
+  <beans profile="dev">
+    <bean id="environmentSpecificConfigurationPaths" parent="defaultEnvironmentSpecificConfigurationPaths" class="org.springframework.beans.factory.config.ListFactoryBean">
+      <property name="sourceList">
+        <list merge="true">
+          <value>classpath*:configuration/environment/dev/*.properties</value>
+        </list>
+      </property>
+    </bean>
+  </beans>
+
+  <beans profile="staging">
+    <bean id="environmentSpecificConfigurationPaths" parent="defaultEnvironmentSpecificConfigurationPaths" class="org.springframework.beans.factory.config.ListFactoryBean">
+      <property name="sourceList">
+        <list merge="true">
+          <value>classpath*:configuration/environment/staging/*.properties</value>
+        </list>
+      </property>
+    </bean>
+  </beans>
+
+  <beans profile="production">
+    <bean id="environmentSpecificConfigurationPaths" parent="defaultEnvironmentSpecificConfigurationPaths" class="org.springframework.beans.factory.config.ListFactoryBean">
+      <property name="sourceList">
+        <list merge="true">
+          <value>classpath*:configuration/environment/production/*.properties</value>
+        </list>
+      </property>
+    </bean>
+  </beans>
+</beans>

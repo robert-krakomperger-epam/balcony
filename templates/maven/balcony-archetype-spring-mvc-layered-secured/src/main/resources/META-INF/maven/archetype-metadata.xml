@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="balcony-archetype-spring-mvc-layered-secured"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modules>
+    <module id="${rootArtifactId}-webapp" dir="apps/__rootArtifactId__-webapp" name="${rootArtifactId}-webapp">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*.xml</include>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/webapp</directory>
+          <includes>
+            <include>**/*.xml</include>
+            <include>**/*.jsp</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-web-parent" dir="modules/web/__rootArtifactId__-web-parent" name="${rootArtifactId}-web-parent" />
+    <module id="${rootArtifactId}-web-context-domain" dir="modules/web/__rootArtifactId__-web-context-domain" name="${rootArtifactId}-web-context-domain">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-web-landing" dir="modules/web/__rootArtifactId__-web-landing" name="${rootArtifactId}-web-landing">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-web-support" dir="modules/web/__rootArtifactId__-web-support" name="${rootArtifactId}-web-support">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-service-parent" dir="modules/service/__rootArtifactId__-service-parent" name="${rootArtifactId}-service-parent" />
+    <module id="${rootArtifactId}-service-context-domain" dir="modules/service/__rootArtifactId__-service-context-domain" name="${rootArtifactId}-service-context-domain">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-service-security" dir="modules/service/__rootArtifactId__-service-security" name="${rootArtifactId}-service-security">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-dal-parent" dir="modules/dal/__rootArtifactId__-dal-parent" name="${rootArtifactId}-dal-parent" />
+  </modules>
+</archetype-descriptor>

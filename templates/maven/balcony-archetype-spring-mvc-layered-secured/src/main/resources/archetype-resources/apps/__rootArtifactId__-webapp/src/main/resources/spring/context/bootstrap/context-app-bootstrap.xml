@@ -1,0 +1,27 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <bean id="daoContext" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+    <constructor-arg>
+      <list>
+        <value>classpath:spring/context/dao/context-dao-core.xml</value>        
+      </list>
+    </constructor-arg>
+    <constructor-arg ref="globalContext" />
+  </bean>
+
+  <bean id="globalContext" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+    <constructor-arg>
+      <list>
+        <value>classpath:spring/context/global/context-global-core.xml</value>
+        <value>classpath:spring/context/global/context-global-configuration.xml</value>
+      </list>
+    </constructor-arg>
+  </bean>
+
+</beans>
